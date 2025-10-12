@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hi, I'm Ely Asaf",
+    "subtitle": "Full\u2011Stack Developer \u2022 React \u2022 Node.js \u2022 Prisma \u2022 Tailwind",
+    "cta_primary": "View Projects",
+    "cta_secondary": "Download CV"
+  },
+  "home": {
+    "tagline": "I build crisp, fast web apps with a creative spark.",
+    "featured": "Featured Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "body": "I'm a Full\u2011Stack developer who loves building useful products end\u2011to\u2011end \u2014 from clean UIs to reliable backends. Passionate about education, AI tools, and helping local businesses go digital."
+  },
+  "projects": {
+    "title": "Projects",
+    "soon": "More projects coming soon\u2026"
+  },
+  "footer": {
+    "madeby": "Designed & built by Ely Asaf"
+  }
+}

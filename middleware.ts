@@ -1,0 +1,18 @@
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+const PUBLIC_FILE = /\.(.*)$/;
+
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || PUBLIC_FILE.test(pathname)) {
+    return;
+  }
+
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length === 0 || (segments[0] !== 'en' && segments[0] !== 'he')) {
+    return NextResponse.redirect(new URL(`/en${pathname}`, req.url));
+  }
+}
