@@ -9,8 +9,8 @@ export const metadata = {
         siteName: "Ely Asaf",
         images: [{
             url: "https://ely-portfolio.vercel.app/og.png",
-            width: 1200,
-            height: 630,
+            width: 640,
+            height: 360,
         }],
         locale: "en_US",
         type: "website"
