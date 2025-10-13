@@ -10,6 +10,21 @@ export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'he' }];
 }
 
+export const metadata = {
+  title: "Ely Asaf — Full-Stack Portfolio",
+  description: "Bilingual (EN/HE) portfolio. React, Node.js, Prisma, Tailwind.",
+  openGraph: {
+    title: "Ely Asaf — Full-Stack Portfolio",
+    description: "Projects, case studies, and live demos.",
+    url: "https://ely-portfolio.vercel.app",
+    siteName: "Ely Asaf",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website"
+  },
+  icons: { icon: "/favicon.ico" }
+};
+
 export default async function RootLayout({
   children,
   params

@@ -1,32 +1,31 @@
-
 import { getMessages, Locale } from "@/lib/i18n";
+import { projects } from "@/lib/projects";
+import Link from "next/link";
 
 export default async function Projects({ params }: { params: { locale: Locale } }) {
   const t = await getMessages(params.locale);
+  const isHe = params.locale === "he";
 
   return (
-    <section className="py-16">
-      <h1 className="text-4xl font-bold">{t.projects.title}</h1>
-      <div className="mt-8 grid md:grid-cols-2 gap-6">
-        <article className="card">
-          <h3 className="font-semibold text-lg">Invoice Manager 2.0</h3>
-          <ul className="mt-2 list-disc pl-5 space-y-1 opacity-80">
-            <li>Next.js App Router, API routes</li>
-            <li>Prisma + PostgreSQL</li>
-            <li>Google OAuth</li>
-            <li>AI‑assisted document parsing</li>
-          </ul>
-        </article>
-        <article className="card">
-          <h3 className="font-semibold text-lg">Shirat‑Hayam Ordering</h3>
-          <ul className="mt-2 list-disc pl-5 space-y-1 opacity-80">
-            <li>Responsive cart + checkout UX</li>
-            <li>Admin management</li>
-            <li>Stripe‑ready structure</li>
-          </ul>
-        </article>
-      </div>
-      <p className="mt-8 opacity-70">{t.projects.soon}</p>
-    </section>
+      <section className="py-16">
+        <h1 className="text-4xl font-bold">{t.projects.title}</h1>
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {projects.map(p => (
+              <article key={p.slug} className="card hero-gradient">
+                <h3 className="font-semibold text-lg">{isHe ? p.title.he : p.title.en}</h3>
+                <p className="opacity-80 mt-2">{isHe ? p.summary.he : p.summary.en}</p>
+                <div className="mt-3 text-sm opacity-80">{p.stack.join(" • ")}</div>
+                <div className="mt-4 flex gap-3">
+                  <Link href={`/${params.locale}/projects/${p.slug}`} className="btn text-white hover:bg-brand-600">
+                    {isHe ? "פרטים" : "Details"}
+                  </Link>
+                  {p.repo && <a className="btn" href={p.repo} target="_blank" rel="noreferrer">GitHub</a>}
+                  {p.demo && <a className="btn" href={p.demo} target="_blank" rel="noreferrer">{isHe ? "דמו" : "Demo"}</a>}
+                </div>
+              </article>
+          ))}
+        </div>
+        <p className="mt-8 opacity-70">{t.projects.soon}</p>
+      </section>
   );
 }

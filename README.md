@@ -1,17 +1,20 @@
+# Ely (Ily) Asaf — Bilingual Portfolio (EN/HE)
 
-# Ely Portfolio Pro (Bilingual: EN + HE)
+Live: https://ely-portfolio.vercel.app
 
-A professional, energetic bilingual portfolio built with **Next.js (App Router)** and **Tailwind CSS**. 
-Locale segment (`/en`, `/he`) with JSON message dictionaries and RTL/LTR support.
+A crisp, bilingual (English/Hebrew) Next.js portfolio with RTL support, Tailwind styling, and dynamic project pages.
 
-## Quickstart
+## Tech
+- Next.js (App Router), TypeScript
+- Tailwind CSS, Framer-ready
+- i18n by locale segment `/en` `/he` + JSON dictionaries
+- RTL support, Heebo for Hebrew
 
+## Develop
 ```bash
 npm i
 npm run dev
 ```
-
-Open: http://localhost:3000
 
 ## Structure
 - `app/[locale]/*` — Pages per locale (EN/HE)
@@ -19,9 +22,3 @@ Open: http://localhost:3000
 - `components/*` — Navigation, language switch
 - `lib/i18n.ts` — Locale helpers
 - `middleware.ts` — Redirect `/` to `/en`
-
-## Customize
-- Replace brand title in `components/NavBar.tsx`
-- Update text in `messages/en.json` and `messages/he.json`
-- Add your `cv.pdf` to `/public/` for the CV button
-- Extend projects on `app/[locale]/projects/page.tsx`

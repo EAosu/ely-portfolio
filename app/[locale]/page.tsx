@@ -13,7 +13,7 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
 
         <div className="mt-8 flex gap-4 flex-wrap">
           <Link href={`/${params.locale}/projects`} className="btn">{t.hero.cta_primary}</Link>
-          <a href="/cv.pdf" className="btn" target="_blank" rel="noopener">{t.hero.cta_secondary}</a>
+          <a href="/ely_cv.pdf" className="btn" target="_blank" rel="noopener">{t.hero.cta_secondary}</a>
         </div>
 
         <p className="mt-10 text-base opacity-80">{t.home.tagline}</p>
