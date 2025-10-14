@@ -12,8 +12,8 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
         <p className="mt-4 text-lg md:text-xl opacity-80">{t.hero.subtitle}</p>
 
         <div className="mt-8 flex gap-4 flex-wrap">
-          <Link href={`/${params.locale}/projects`} className="btn">{t.hero.cta_primary}</Link>
-          <a href="/ely_cv.pdf" className="btn" target="_blank" rel="noopener">{t.hero.cta_secondary}</a>
+          <Link href={`/${params.locale}/projects`} className="btn btn-primary">{t.hero.cta_primary}</Link>
+          <a href="/ely_cv.pdf" className="btn btn-primary" target="_blank" rel="noopener">{t.hero.cta_secondary}</a>
         </div>
 
         <p className="mt-10 text-base opacity-80">{t.home.tagline}</p>
@@ -25,7 +25,7 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
           <h3 className="font-semibold text-lg">Invoice Manager 2.0</h3>
           <p className="opacity-80 mt-2">Smart invoice/receipt classifier with AI, dashboard, and Google OAuth.</p>
         </article>
-        <article className="card">
+        <article className="card sub-gradient">
           <h3 className="font-semibold text-lg">Shirat‑Hayam Ordering</h3>
           <p className="opacity-80 mt-2">Modern ordering flow with cart, responsive design, and admin controls.</p>
         </article>

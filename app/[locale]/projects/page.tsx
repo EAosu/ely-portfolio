@@ -16,11 +16,11 @@ export default async function Projects({ params }: { params: { locale: Locale } 
                 <p className="opacity-80 mt-2">{isHe ? p.summary.he : p.summary.en}</p>
                 <div className="mt-3 text-sm opacity-80">{p.stack.join(" • ")}</div>
                 <div className="mt-4 flex gap-3">
-                  <Link href={`/${params.locale}/projects/${p.slug}`} className="btn bg-brand-500 text-white hover:bg-brand-600">
+                  <Link href={`/${params.locale}/projects/${p.slug}`} className="btn btn-secondary">
                     {isHe ? "פרטים" : "Details"}
                   </Link>
-                  {p.repo && <a className="btn" href={p.repo} target="_blank" rel="noreferrer">GitHub</a>}
-                  {p.demo && <a className="btn" href={p.demo} target="_blank" rel="noreferrer">{isHe ? "דמו" : "Demo"}</a>}
+                  {p.repo && <a className="btn btn-outline" href={p.repo} target="_blank" rel="noreferrer">GitHub</a>}
+                  {p.demo && <a className="btn btn-outline" href={p.demo} target="_blank" rel="noreferrer">{isHe ? "דמו" : "Demo"}</a>}
                 </div>
               </article>
           ))}

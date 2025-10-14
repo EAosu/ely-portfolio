@@ -5,7 +5,7 @@
 
 html, body { height: 100%; }
 .card { @apply rounded-2xl border border-black/10 bg-white/80 dark:bg-white/5 backdrop-blur p-6 shadow-lg hover:shadow-2xl transition-all duration-300; }
-.btn { @apply rounded-full px-5 py-2 font-medium border border-black/10 bg-white/80 hover:bg-white text-black/80 hover:text-black transition-all duration-200; }
+
 .hero-gradient {
     background:
             radial-gradient(1200px 600px at 80% 0%, rgba(139, 92, 246, .28), transparent 40%), /* purple brand-500 */
@@ -13,9 +13,48 @@ html, body { height: 100%; }
             radial-gradient(900px 900px  at 10% 90%, rgba(34, 197, 94,  .18), transparent 35%); /* green */
 }
 
+.sub-gradient {
+    background:
+            radial-gradient(1200px 600px at 60% 0%, rgba(130, 7, 56, 0.26), transparent 40%), /* purple brand-500 */
+            radial-gradient(1000px 800px at 10% 40%, rgba(5, 123, 230, 0.24), transparent 42%), /* blue */
+            radial-gradient(900px 900px  at 10% 30%, rgba(2, 202, 12,  0.14), transparent 35%); /* green */
+}
+
 html[dir="rtl"] .rtl\:text-right { text-align: right; }
 html[dir="rtl"] .rtl\:pl-0 { padding-left: 0; }
 html[dir="rtl"] .rtl\:pr-4 { padding-right: 1rem; }
 html[dir="rtl"] {
     font-family: 'Heebo', sans-serif;
+}
+
+@layer components {
+    /* בסיס ניטרלי – בלי צבעי רקע/טקסט */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2
+        font-medium border border-black/10 transition-all duration-200
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+        ring-offset-transparent;
+    }
+
+    /* מצבי השבתה */
+    .btn:disabled,
+    .btn[aria-disabled="true"] {
+        @apply opacity-60 pointer-events-none;
+    }
+
+    /* וריאציות צבע */
+    .btn-primary   { @apply bg-brand-600 text-white hover:bg-brand-800; }
+    .btn-secondary { @apply bg-accentBlue text-white hover:bg-deepBlue; }
+    .btn-ghost     { @apply bg-transparent border-transparent hover:bg-black/5; }
+    .btn-outline   { @apply bg-transparent text-black/80 hover:bg-black/5; }
+
+    .dark .btn-outline { @apply text-white/85 hover:bg-white/10 border-white/20; }
+    .dark .btn-ghost   { @apply hover:bg-white/10; }
+
+    /* גדלים */
+    .btn-sm { @apply px-3 py-1 text-sm; }
+    .btn-lg { @apply px-6 py-3 text-base; }
+
+    /* כפתור אייקון בלבד */
+    .btn-icon { @apply rounded-full p-2 border border-black/10; }
 }
