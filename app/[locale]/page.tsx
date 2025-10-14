@@ -1,9 +1,12 @@
-
+import { projects } from "@/lib/projects";
 import Link from "next/link";
 import { getMessages, Locale } from "@/lib/i18n";
 
 export default async function Home({ params }: { params: { locale: Locale } }) {
   const t = await getMessages(params.locale);
+    const isHe = params.locale === "he";
+    const featured = projects.filter(p => p.featured).slice(0, 2);
+    const list = featured.length ? featured : projects.slice(0, 2);
 
   return (
     <section className="py-16">
@@ -20,16 +23,37 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
       </div>
 
       <h2 className="mt-14 text-2xl font-semibold">{t.home.featured}</h2>
-      <div className="mt-6 grid md:grid-cols-2 gap-6">
-        <article className="card">
-          <h3 className="font-semibold text-lg">Invoice Manager 2.0</h3>
-          <p className="opacity-80 mt-2">Smart invoice/receipt classifier with AI, dashboard, and Google OAuth.</p>
-        </article>
-        <article className="card sub-gradient">
-          <h3 className="font-semibold text-lg">Shirat‑Hayam Ordering</h3>
-          <p className="opacity-80 mt-2">Modern ordering flow with cart, responsive design, and admin controls.</p>
-        </article>
-      </div>
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+            {list.map(p => (
+                <article key={p.slug} className="card sub-gradient">
+                    <h3 className="font-semibold text-lg">
+                        {isHe ? p.title.he : p.title.en}
+                    </h3>
+                    <p className="opacity-80 mt-2">
+                        {isHe ? p.summary.he : p.summary.en}
+                    </p>
+                    <div className="mt-3 text-sm opacity-70">{p.stack.join(" • ")}</div>
+                    <div className="mt-4 flex gap-3 flex-wrap">
+                        <Link
+                            href={`/${params.locale}/projects/${p.slug}`}
+                            className="btn btn-primary btn-sm"
+                        >
+                            {isHe ? "פרטים" : "Details"}
+                        </Link>
+                        {p.repo && (
+                            <a className="btn btn-ghost btn-sm" href={p.repo} target="_blank" rel="noreferrer">
+                                GitHub
+                            </a>
+                        )}
+                        {p.demo && (
+                            <a className="btn btn-outline btn-sm" href={p.demo} target="_blank" rel="noreferrer">
+                                {isHe ? "דמו" : "Demo"}
+                            </a>
+                        )}
+                    </div>
+                </article>
+            ))}
+        </div>
     </section>
   );
 }
