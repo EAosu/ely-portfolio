@@ -1,4 +1,4 @@
-# Ely (Ily) Asaf — Bilingual Portfolio (EN/HE)
+# Ely (Ily) Asaf - Bilingual Portfolio (EN/HE)
 
 Live: https://ely-portfolio.vercel.app
 
@@ -17,8 +17,8 @@ npm run dev
 ```
 
 ## Structure
-- `app/[locale]/*` — Pages per locale (EN/HE)
-- `messages/*.json` — Translation dictionaries
-- `components/*` — Navigation, language switch
-- `lib/i18n.ts` — Locale helpers
-- `middleware.ts` — Redirect `/` to `/en`
+- `app/[locale]/*` - Pages per locale (EN/HE)
+- `messages/*.json` - Translation dictionaries
+- `components/*` - Navigation, language switch
+- `lib/i18n.ts` - Locale helpers
+- `middleware.ts` - Redirect `/` to `/en`

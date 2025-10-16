@@ -33,7 +33,7 @@ export const projects: Project[] = [
         slug: "shirat-hayam-ordering",
         title: {
             en: "Shirat-Hayam Ordering",
-            he: "Shirat-Hayam הזמנות",
+            he: "הזמנות שירת הים",
         },
         summary: {
             en: "Modern ordering flow with cart, responsive design, and admin controls.",

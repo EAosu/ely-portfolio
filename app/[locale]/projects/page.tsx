@@ -1,6 +1,19 @@
 import { getMessages, Locale } from "@/lib/i18n";
 import { projects } from "@/lib/projects";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
+    const isHe = params.locale === "he";
+    return {
+        title: isHe ? "פרויקטים - איליי אסף" : "Projects - Ely Asaf",
+        description: isHe ? "פרויקטים נבחרים ומקרי בוחן." : "Selected projects and case studies.",
+        alternates: {
+            canonical: `/${params.locale}/projects`,
+            languages: { en: "/en/projects", he: "/he/projects" },
+        },
+    };
+}
 
 export default async function Projects({ params }: { params: { locale: Locale } }) {
   const t = await getMessages(params.locale);
