@@ -1,83 +1,25 @@
-"use client";
-import { useState } from "react";
+import type { Metadata } from "next";
 import { getMessages, Locale } from "@/lib/i18n";
+import ContactForm from "@/components/ContactForm"; // זה יהיה קובץ קליינט נפרד
+
+export async function generateMetadata(
+    { params }: { params: { locale: Locale } }
+): Promise<Metadata> {
+    const isHe = params.locale === "he";
+    return {
+        title: isHe ? "צור קשר - איליי אסף" : "Contact - Ely Asaf",
+        description: isHe
+            ? "אשמח לשיתופי פעולה, הצעות עבודה או סתם שלום."
+            : "Open to collaborations, job opportunities, or just saying hi.",
+        alternates: {
+            canonical: `/${params.locale}/contact`,
+            languages: { en: "/en/contact", he: "/he/contact" },
+        },
+    };
+}
 
 export default async function ContactPage({ params }: { params: { locale: Locale } }) {
     const t = await getMessages(params.locale);
     const isHe = params.locale === "he";
-
     return <ContactForm t={t.contact} isHe={isHe} />;
-}
-
-function ContactForm({ t, isHe }: { t: any; isHe: boolean }) {
-    const [form, setForm] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-    async function handleSubmit(e: React.FormEvent) {
-        e.preventDefault();
-        setStatus("sending");
-
-        try {
-            const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: form.name,
-                    email: form.email,
-                    message: form.message,
-                }),
-            });
-
-            if (res.ok) setStatus("sent");
-            else throw new Error("Failed");
-        } catch {
-            setStatus("error");
-        }
-    }
-
-    return (
-        <section dir={isHe ? "rtl" : "ltr"} className="mt-4 py-16 max-w-2xl mx-auto px-4 card sub-gradient">
-            <h1 className="text-4xl font-bold mb-3 text-center">{t.title}</h1>
-            <p className="opacity-80 text-center mb-8">{t.subtitle}</p>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    placeholder={t.name}
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full rounded-xl p-3 bg-white/20 border border-black/40 text-black placeholder-black/60"
-                    required
-                />
-                <input
-                    type="email"
-                    placeholder={t.email}
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full rounded-xl p-3 bg-white/20 border border-black/40 text-black placeholder-black/60"
-                    required
-                />
-                <textarea
-                    placeholder={t.message}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full rounded-xl p-3 bg-white/20 border border-black/40 text-black placeholder-black/60 min-h-[120px]"
-                    required
-                />
-                <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="btn btn-primary w-full"
-                >
-                    {status === "sending"
-                        ? t.sending
-                        : status === "sent"
-                            ? t.sent
-                            : status === "error"
-                                ? t.error
-                                : t.send}
-                </button>
-            </form>
-        </section>
-    );
 }
