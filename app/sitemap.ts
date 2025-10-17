@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/he/projects",
         "/en/about",
         "/he/about",
+        "/en/contact",
+        "/he/contact",
     ];
 
     const staticEntries = staticRoutes.map((p) => ({

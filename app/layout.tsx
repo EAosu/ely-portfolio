@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     metadataBase: new URL("https://ely-portfolio.vercel.app"),
     title: "Ely Asaf - Full-Stack Developer",
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon-32x32.png",
+        apple: "/apple-touch-icon.png",
+    },
     description: "Bilingual (EN/HE) portfolio. React, Next.js, Node.js, Prisma, Tailwind.",
     alternates: {
         canonical: "/",
@@ -26,7 +31,6 @@ export const metadata: Metadata = {
         description: "Projects, case studies, and live demos.",
         images: ["/og.png"],
     },
-    icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

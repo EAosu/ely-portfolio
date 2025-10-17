@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import LangSwitch from "./LangSwitch";
 import { Locale } from "@/lib/i18n";
@@ -13,6 +12,7 @@ export default function NavBar({ t, locale }: { t: any; locale: Locale }) {
           <Link href={base} className="hover:underline">{t.nav.home}</Link>
           <Link href={`${base}/projects`} className="hover:underline">{t.nav.projects}</Link>
           <Link href={`${base}/about`} className="hover:underline">{t.nav.about}</Link>
+          <Link href={`${base}/contact`} className="hover:underline">{t.nav.contact}</Link>
           <LangSwitch />
         </div>
       </nav>

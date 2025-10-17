@@ -23,6 +23,17 @@
     "title": "Projects",
     "soon": "More projects coming soon\u2026"
   },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Feel free to reach out for collaborations, job offers, or just to say hi!",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "sent": "Message Sent ✅",
+    "error": "Something went wrong, please try again."
+  },
   "footer": {
     "madeby": "Designed & built by Ely Asaf"
   }

@@ -28,7 +28,7 @@ export default function SkillCard({ name, icon, color, rtl }: Props) {
             <div className="flex items-center gap-3">
                 <div className={`flex h-10 w-10 items-center justify-center ring-0 ${color || "bg-white/10"}`}>
                     {icon ? (
-                        <img src={icon} alt={`${name} icon`} className="w-5 h-5" />
+                        <img src={icon} alt={`${name} icon`} className="w-6 h-6" />
                     ) : (
                         <span className="text-sm font-semibold text-black/80">{initials}</span>
                     )}

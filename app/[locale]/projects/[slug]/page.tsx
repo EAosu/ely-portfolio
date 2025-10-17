@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { notFound } from "next/navigation";
+import ProjectCaseStudy from "@/components/ProjectCaseStudy";
 import { projects } from "@/lib/projects";
 import { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -49,29 +48,26 @@ export async function generateStaticParams() {
 export default function ProjectPage({ params }: { params: { locale: Locale; slug: string } }) {
     const isHe = params.locale === "he";
     const p = projects.find(x => x.slug === params.slug);
-    if (!p) return notFound();
+    if (!p) return null;
 
     return (
-        <section className="py-16">
-            <h1 className="text-4xl font-extrabold">{isHe ? p.title.he : p.title.en}</h1>
-            <p className="mt-3 opacity-80">{isHe ? p.summary.he : p.summary.en}</p>
-
-            <div className="mt-4 text-sm opacity-70">{p.stack.join(" • ")}</div>
+        <section className="py-12">
+            <h1 className="text-3xl font-bold">{isHe ? p.title.he : p.title.en}</h1>
+            <p className="mt-2 opacity-80 font-semibold">{isHe ? p.summary.he : p.summary.en}</p>
 
             {p.images?.length ? (
-                <div className="mt-8 grid md:grid-cols-2 gap-6">
-                    {p.images.map((src, i) => (
-                        <div key={i} className="overflow-hidden rounded-2xl border border-black/10">
-                            <Image src={src} alt={`${p.slug}-${i}`} width={1200} height={800} />
-                        </div>
+                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {p.images.map(src => (
+                        <img key={src} src={src} alt="" className="rounded-xl border border-white/10" />
                     ))}
                 </div>
             ) : null}
 
-            <div className="mt-8 flex gap-3">
-                {p.repo && <a className="btn" href={p.repo} target="_blank" rel="noreferrer">GitHub</a>}
-                {p.demo && <a className="btn bg-brand-500 text-white hover:bg-brand-600" href={p.demo} target="_blank" rel="noreferrer">{isHe ? "דמו חי" : "Live Demo"}</a>}
-            </div>
+            {p.caseStudy && (
+                <div className="mt-10">
+                    <ProjectCaseStudy cs={p.caseStudy} isHe={isHe} />
+                </div>
+            )}
         </section>
     );
 }
