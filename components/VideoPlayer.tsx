@@ -4,12 +4,10 @@ import React from "react";
 
 export default function VideoPlayer({
                                         src,
-                                        poster,
                                         provider,
                                         className,
                                     }: {
     src: string;
-    poster?: string;
     provider?: "file" | "youtube" | "vimeo";
     className?: string;
 }) {
@@ -56,7 +54,6 @@ export default function VideoPlayer({
             className={className}
             controls
             preload="metadata"
-            poster={poster}
             style={{ borderRadius: 16 }}
         >
             <source src={src} />

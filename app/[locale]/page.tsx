@@ -75,7 +75,7 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
 
                   <div className="mt-4">
                     {(() => {
-                      const displayImage = p.images?.[0] ?? p.video?.poster;
+                      const displayImage = p.images?.[0];
                       return displayImage ? (
                           <img
                               src={displayImage}

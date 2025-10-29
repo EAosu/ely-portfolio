@@ -60,7 +60,6 @@ export default function ProjectPage({ params }: { params: { locale: Locale; slug
                 <div className="mt-6">
                     <VideoPlayer
                         src={p.video.src}
-                        poster={p.video.poster}
                         provider={p.video.provider}
                         className="w-full aspect-video rounded-2xl shadow"
                     />

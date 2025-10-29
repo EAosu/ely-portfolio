@@ -8,7 +8,6 @@ export type Project = {
     demo?: string;
     video?: {
         src: string;
-        poster?: string;
         provider?: "file" | "youtube" | "vimeo";
     };
     featured?: boolean;
@@ -47,9 +46,8 @@ export const projects: Project[] = [
         images: ["/projects/invoice-manager/cover.png"],
         repo: "https://github.com/EAosu/invoice-manager",
         video: {
-            src: "/videos/billy-demo.mp4", // TODO
-            poster: "/videos/posters/billy.jpg", // TODO
-            provider: "file",
+            src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o",
+            provider: "youtube",
         },
         featured: true,
         caseStudy: {
@@ -107,9 +105,8 @@ export const projects: Project[] = [
         stack: ["Next.js", "TypeScript", "Tailwind", "Server Actions", "PDF"],
         images: ["/projects/catering-ordering/cover.png"],
         video: {
-            src: "/videos/shirat-hayam-demo.mp4", // TODO
-            poster: "/videos/posters/shirat-hayam.jpg", // TODO
-            provider: "file",
+            src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o",
+            provider: "youtube",
         },
         featured: true,
         createdAt: "2025-08-10",
@@ -157,9 +154,8 @@ export const projects: Project[] = [
         repo: "https://github.com/EAosu/rsvp-seating",
         images: ["/projects/rsvp-seating/cover.png"],
         video: {
-            src: "/videos/rsvp-seating-demo.mp4", // TODO
-            poster: "/videos/posters/rsvp-seating.jpg", // TODO
-            provider: "file",
+            src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o",
+            provider: "youtube",
         },
         featured: true,
         caseStudy: {
@@ -205,7 +201,7 @@ export const projects: Project[] = [
         stack: ["React", "Node.js", "Express", "OpenAI"],
         images: ["/projects/ai-mock-interviews/cover.png"],
         repo: "https://github.com/EAosu/ai_mock_interviews",
-        video: { src: "/videos/ai-mock-interviews.mp4", poster: "/videos/posters/ai-mock.jpg" }, // TODO
+        video: { src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o" },
         createdAt: "2025-01-01",
     },
     {
@@ -220,7 +216,7 @@ export const projects: Project[] = [
         stack: ["React", "JavaScript", "Spring", "SQL Server"],
         images: ["/projects/movies-ecommerce/cover.png"],
         repo: "https://github.com/EAosu/e-commerce_movies_web",
-        video: { src: "/videos/ecommerce-movies.mp4", poster: "/videos/posters/ecommerce.jpg" }, // TODO
+        video: { src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o" },
         createdAt: "2024-01-15",
     },
     {
@@ -233,7 +229,7 @@ export const projects: Project[] = [
         stack: ["React", "Java", "Servlets", "HTML/CSS", "JavaScript"],
         images: ["/projects/bulls-and-cows/cover.png"],
         repo: "https://github.com/EAosu/bulls_and_cows_game",
-        video: { src: "/videos/bulls-and-cows.mp4", poster: "/videos/posters/bnc.jpg" }, // TODO
+        video: { src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o" },
         createdAt: "2023-09-01",
     },
     {
@@ -246,7 +242,7 @@ export const projects: Project[] = [
         stack: ["JavaScript", "REST", "HTML/CSS"],
         images: ["/projects/rest-nasa-api-social/cover.png"],
         repo: "https://github.com/EAosu/rest_nasa_api_social",
-        video: { src: "/videos/rest-nasa.mp4", poster: "/videos/posters/nasa.jpg" }, // TODO
+        video: { src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o" },
         createdAt: "2023-07-15",
     },
     {
@@ -259,7 +255,7 @@ export const projects: Project[] = [
         stack: ["Spring", "Java", "JavaScript", "HTML/CSS"],
         repo: "https://github.com/EAosu/spring_games_reviews_web",
         images: ["/projects/spring-games-reviews/cover.png"],
-        video: { src: "/videos/spring-games-reviews.mp4", poster: "/videos/posters/games.jpg" }, // TODO
+        video: { src: "https://www.youtube.com/watch?v=ZaK9Wi5ho0o" },
         createdAt: "2023-05-10",
     },
 ];
