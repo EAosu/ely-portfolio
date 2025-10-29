@@ -1,4 +1,4 @@
-# Ely (Ily) Asaf - Bilingual Portfolio (EN/HE)
+# Ely Asaf - Bilingual Portfolio (EN/HE)
 
 Live: https://ely-portfolio.vercel.app
 

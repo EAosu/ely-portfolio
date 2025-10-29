@@ -30,7 +30,6 @@ html[dir="rtl"] {
 }
 
 @layer components {
-    /* בסיס ניטרלי – בלי צבעי רקע/טקסט */
     .btn {
         @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2
         font-medium border border-black/10 transition-all duration-200

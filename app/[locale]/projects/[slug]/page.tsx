@@ -2,6 +2,7 @@ import ProjectCaseStudy from "@/components/ProjectCaseStudy";
 import { projects } from "@/lib/projects";
 import { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
+import VideoPlayer from "@/components/VideoPlayer";
 
 export async function generateMetadata(
     { params }: { params: { locale: Locale; slug: string } }
@@ -55,7 +56,16 @@ export default function ProjectPage({ params }: { params: { locale: Locale; slug
             <h1 className="text-3xl font-bold">{isHe ? p.title.he : p.title.en}</h1>
             <p className="mt-2 opacity-80 font-semibold">{isHe ? p.summary.he : p.summary.en}</p>
 
-            {p.images?.length ? (
+            {p.video ? (
+                <div className="mt-6">
+                    <VideoPlayer
+                        src={p.video.src}
+                        poster={p.video.poster}
+                        provider={p.video.provider}
+                        className="w-full aspect-video rounded-2xl shadow"
+                    />
+                </div>
+            ) : p.images?.length ? (
                 <div className="mt-6 grid gap-4 md:grid-cols-2">
                     {p.images.map(src => (
                         <img key={src} src={src} alt="" className="rounded-xl border border-white/10" />

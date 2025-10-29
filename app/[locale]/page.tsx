@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
 export default async function Home({ params }: { params: { locale: Locale } }) {
   const t = await getMessages(params.locale);
   const isHe = params.locale === "he";
-  const featured = projects.filter(p => p.featured).slice(0, 2);
+  const featured = projects.filter(p => p.featured).slice(0, 4);
   const list = featured.length ? featured : projects.slice(0, 2);
   const jsonLd = {
     "@context": "https://schema.org",
@@ -31,8 +31,8 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
     "url": "https://ely-portfolio.vercel.app",
     "image": "https://ely-portfolio.vercel.app/og.png",
     "sameAs": [
-      "https://github.com/EAosu",           // עדכן ללינקים שלך
-      "https://www.linkedin.com/in/ely-asaf" // עדכן ללינקדאין שלך
+      "https://github.com/EAosu",
+      "https://www.linkedin.com/in/ely-asaf"
     ],
     "knowsAbout": [
       "React", "Next.js", "Node.js", "TypeScript",
@@ -72,6 +72,21 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
                     {isHe ? p.summary.he : p.summary.en}
                   </p>
                   <div className="mt-3 text-sm opacity-70">{p.stack.join(" • ")}</div>
+
+                  <div className="mt-4">
+                    {(() => {
+                      const displayImage = p.images?.[0] ?? p.video?.poster;
+                      return displayImage ? (
+                          <img
+                              src={displayImage}
+                              alt={isHe ? p.title.he : p.title.en}
+                              className="w-full rounded-2xl shadow"
+                              loading="lazy"
+                          />
+                      ) : null;
+                    })()}
+                  </div>
+
                   <div className="mt-4 flex gap-3 flex-wrap">
                     <Link
                         href={`/${params.locale}/projects/${p.slug}`}
